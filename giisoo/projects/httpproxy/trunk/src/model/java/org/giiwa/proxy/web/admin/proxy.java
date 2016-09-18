@@ -43,10 +43,6 @@ public class proxy extends Model {
   public void setting() {
     if (method.isPost()) {
       Global.setConfig("proxy.port", this.getInt("port"));
-      Global.setConfig("proxy.ssl", X.isSame("on", this.getString("ssl")) ? "on" : "off");
-      Global.setConfig("proxy.server.crt", this.getHtml("server_crt"));
-      Global.setConfig("proxy.server.key", this.getHtml("server_key"));
-      Global.setConfig("proxy.server.password", this.getHtml("password"));
     }
     this.show("/admin/proxy.setting.html");
   }

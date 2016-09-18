@@ -17,7 +17,6 @@ package org.giiwa.proxy.web;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.giiwa.core.bean.X;
 import org.giiwa.core.conf.Global;
 import org.giiwa.core.task.Task;
 import org.giiwa.framework.bean.OpLog;
@@ -39,14 +38,8 @@ public class ProxyListener implements IListener {
 
         int port = Global.getInt("proxy.port", 0);
         if (port > 0) {
-          String ssl = Global.getString("proxy.ssl", "on");
-          if (X.isSame(ssl, "on")) {
-            HttpsServer proxy = new HttpsServer(port);
-            proxy.accept();
-          } else {
             HttpServer proxy = new HttpServer(port);
             proxy.accept();
-          }
         } else {
           OpLog.info(proxy.class, "startup", "disabled", null, null);
         }

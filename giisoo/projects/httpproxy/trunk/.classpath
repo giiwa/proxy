@@ -48,6 +48,5 @@
 	<classpathentry kind="lib" path="depends/commons-dbcp-1.4.jar"/>
 	<classpathentry kind="lib" path="depends/xml-apis-1.0.b2.jar"/>
 	<classpathentry kind="lib" path="depends/jedis-2.8.0.jar"/>
-	<classpathentry kind="lib" path="src/WEB-INF/lib/not-yet-commons-ssl.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
