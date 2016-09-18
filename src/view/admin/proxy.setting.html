@@ -10,10 +10,6 @@
 
 <form action='/admin/proxy/setting'  method='post' class='form' enctype="multipart/form-data">
 	<div><label><h3>$lang.get('proxy.port')(<r>*</r>):</h3><input type='number' name='port' value="$global.getInt('proxy.port', 0)"/></label></div>
-	<div><label><h3>$lang.get('proxy.ssl'):</h3><input type='checkbox' name='ssl' #if($global.getString('proxy.ssl', 'on') == 'on') checked #end/></label></div>
-	<div><label><h3>$lang.get('proxy.server.crt'):</h3><textarea name='server_crt'>$global.getString('proxy.server.crt','')</textarea></label></div>
-	<div><label><h3>$lang.get('proxy.server.key'):</h3><textarea name='server_key'>$global.getString('proxy.server.key','')</textarea></label></div>
-	<div><label><h3>$lang.get('proxy.server.password'):</h3><input type='password' name='password' value="$global.getString('proxy.server.password', '')"/></label></div>
 	
 	<button type='submit'>$lang.get('btn.save')</button>
 </form>
