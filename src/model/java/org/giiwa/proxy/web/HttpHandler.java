@@ -31,9 +31,9 @@ import org.giiwa.core.task.Task;
 import org.giiwa.framework.bean.OpLog;
 import org.giiwa.proxy.web.admin.proxy;
 
-public class RequestHandler extends Task {
+public class HttpHandler extends Task {
 
-  private static Log                log = LogFactory.getLog(RequestHandler.class);
+  private static Log                log = LogFactory.getLog(HttpHandler.class);
 
   protected DataInputStream         clientInputStream;
 
@@ -61,7 +61,7 @@ public class RequestHandler extends Task {
 
   private TimeStamp                 t   = TimeStamp.create();
 
-  public RequestHandler(Socket clientSocket) {
+  public HttpHandler(Socket clientSocket) {
 
     header = new HashMap<String, String>();
     this.clientSocket = clientSocket;

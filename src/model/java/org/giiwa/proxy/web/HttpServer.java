@@ -57,7 +57,7 @@ public class HttpServer {
 
     while (true) {
       try {
-        new RequestHandler(server.accept()).schedule(0);
+        new HttpHandler(server.accept()).schedule(0);
       } catch (IOException e) {
         log.error(e.getMessage(), e);
         OpLog.error(proxy.class, "running", e.getMessage(), null, null);
