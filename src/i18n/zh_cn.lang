@@ -1,5 +1,7 @@
-a.proxy=Http代理
-menu.proxy=Http代理
+a.proxy=Web代理
+menu.proxy=Web代理
 menu.proxy.log=代理日志
 proxy.log.title=日志管理
 proxy.setting.title=代理设置
+proxy.http.port=Http代理端口
+proxy.socks.port=Socks代理端口

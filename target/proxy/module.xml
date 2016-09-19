@@ -6,7 +6,7 @@
   <package>org.giiwa.proxy.web</package>
   <screenshot>/images/demo_screenshot.png</screenshot>
   <version>1.0.1</version>
-  <build>1609190818</build>
+  <build>1609190831</build>
   <enabled>true</enabled>
   <readme>web proxy module</readme>
   <listener>

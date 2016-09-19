@@ -1,4 +1,6 @@
-a.proxy=Proxy
-menu.proxy=Proxy
+a.proxy=Web Proxy
+menu.proxy=Web Proxy
 menu.proxy.log=Log
 proxy.log.title=Log management
+proxy.http.port=proxy http port
+proxy.socks.port=proxy socks port

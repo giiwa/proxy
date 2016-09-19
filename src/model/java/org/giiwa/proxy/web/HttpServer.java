@@ -53,7 +53,7 @@ public class HttpServer {
    * Create new socket and request handler object on each request
    * 
    */
-  public void accept() {
+  public void start() {
 
     while (true) {
       try {
@@ -73,7 +73,7 @@ public class HttpServer {
 
     System.out.println("ProxyServer is listening to port " + 8080);
     HttpServer proxy = new HttpServer(8080);
-    proxy.accept();
+    proxy.start();
 
   }
 

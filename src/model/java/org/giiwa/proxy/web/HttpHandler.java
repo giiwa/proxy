@@ -80,10 +80,10 @@ public class HttpHandler extends Task {
 
       remoteToClient();
 
-      close(remoteOutputStream, remoteInputStream, clientInputStream, clientOutputStream, clientSocket, remoteSocket);
-
     } catch (IOException e) {
       log.error(url, e);
+    } finally {
+      close(remoteOutputStream, remoteInputStream, clientInputStream, clientOutputStream, clientSocket, remoteSocket);
     }
   }
 
@@ -166,7 +166,7 @@ public class HttpHandler extends Task {
 
         }
       }
-      OpLog.info(proxy.class, "request", sb.toString(), null, null);
+      OpLog.info(proxy.class, "request", sb.toString(), null, clientSocket.toString());
 
       remoteOutputStream.write(EOL.getBytes());
       remoteOutputStream.flush();
@@ -185,9 +185,13 @@ public class HttpHandler extends Task {
     }
   }
 
+  int toclient = 0;
+
   private void remoteToClient() {
 
     try {
+
+      toclient++;
 
       if (remoteSocket == null)
         return;
@@ -222,11 +226,12 @@ public class HttpHandler extends Task {
         clientOutputStream.flush();
       }
 
-      OpLog.info(proxy.class, "response", sb.toString(), null, null);
+      OpLog.info(proxy.class, "response", sb.toString(), null, clientSocket.toString());
 
     } catch (Exception e) {
-      log.error("past " + t.past() + "ms, url=" + url, e);
-      OpLog.warn(proxy.class, "response", "error=" + e.getMessage() + "<br/>url=" + url, null, null);
+      log.error("past " + t.past() + "ms, url=" + url + ", toclient=" + toclient, e);
+      OpLog.warn(proxy.class, "response", "error=" + e.getMessage() + "<br/>url=" + url + ", toclient=" + toclient,
+          null, clientSocket.toString());
       return;
     }
   }

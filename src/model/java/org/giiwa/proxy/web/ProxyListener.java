@@ -36,15 +36,29 @@ public class ProxyListener implements IListener {
     new Task() {
       public void onExecute() {
 
-        int port = Global.getInt("proxy.port", 0);
+        int port = Global.getInt("proxy.http.port", 0);
         if (port > 0) {
-            HttpServer proxy = new HttpServer(port);
-            proxy.accept();
+          HttpServer proxy = new HttpServer(port);
+          proxy.start();
         } else {
           OpLog.info(proxy.class, "startup", "disabled", null, null);
         }
       }
     }.schedule(10);
+
+    new Task() {
+      public void onExecute() {
+
+        int port = Global.getInt("proxy.socks.port", 0);
+        if (port > 0) {
+          SocksServer proxy = new SocksServer(port);
+          proxy.start();
+        } else {
+          OpLog.info(proxy.class, "startup", "disabled", null, null);
+        }
+      }
+    }.schedule(10);
+
   }
 
   @Override
