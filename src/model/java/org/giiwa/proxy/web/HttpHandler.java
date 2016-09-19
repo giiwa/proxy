@@ -137,8 +137,8 @@ public class HttpHandler extends Task {
       i = host.indexOf(":");
       int port = 80;
       if (i > 0) {
-        host = host.substring(0, i);
         port = X.toInt(host.substring(i + 1), 80);
+        host = host.substring(0, i);
       }
       remoteSocket = new Socket(host, port);
       remoteOutputStream = remoteSocket.getOutputStream();
