@@ -1,0 +1,10 @@
+a.proxy=Proxy
+menu.proxy=Proxy
+menu.proxy.log=Log
+proxy.log.title=Log management
+proxy.port=Proxy port
+proxy.setting.title=Proxy setting
+proxy.server.crt=server.crt
+proxy.server.key=server.key
+proxy.server.password=password
+proxy.ssl=https

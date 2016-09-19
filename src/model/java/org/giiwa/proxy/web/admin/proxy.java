@@ -42,7 +42,8 @@ public class proxy extends Model {
   @Path(path = "setting", login = true, access = "access.config.admin")
   public void setting() {
     if (method.isPost()) {
-      Global.setConfig("proxy.port", this.getInt("port"));
+      Global.setConfig("proxy.http.port", this.getInt("http_port"));
+      Global.setConfig("proxy.socks.port", this.getInt("socks_port"));
     }
     this.show("/admin/proxy.setting.html");
   }
